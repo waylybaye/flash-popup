@@ -1,0 +1,78 @@
+<html>
+<head>
+    <title>Flash Popup Options</title>
+    <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+
+    <script type="text/javascript">
+        function save_options(){
+            localStorage['close_tab'] = $('#close_tab').attr('checked');
+            localStorage['reopen_tab'] = $('#reopen_tab').attr('checked');
+            localStorage['one_instance'] = $('#one_instance').attr('checked');
+            window.close();
+        }
+        function restore_options(){
+            if( localStorage['close_tab'] == undefined){
+                // Default Settings
+                localStorage['close_tab'] = 'false';
+                localStorage['reopen_tab'] = 'false';
+                localStorage['one_instance'] = 'false';
+            }
+            $('.i18n').each(function(index, ele){
+                $(ele).html( chrome.i18n.getMessage( $(ele).attr('rel') ) );
+            });
+
+            $('input[type=checkbox]').each(function(index, ele){
+                if( localStorage[$(ele).attr('id')] == 'true' ){
+                    $(ele).attr('checked', true);
+                }else{
+                    $(ele).attr('checked', false);
+                }
+            });
+        }
+    </script>
+    <style type="text/css">
+        body{
+            width: 300px;
+            font-size: 12px;
+            color: #888;
+            line-height: 24px;
+        }
+        h1{
+            color: #900;
+            color: green;
+            padding: 2px 0;
+            margin: 0;
+            font-size: 13px;
+        }
+        hr{
+            margin: 0 0 2px;
+            padding: 0;
+            color: #eee;
+            height: 1px;
+            border: none;
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body onload="restore_options()">
+    <h1 class='i18n' rel="ui_options">Options</h1>
+    <hr/>
+    
+    <input type="checkbox" id="close_tab"></input>
+    <label class='i18n' rel="option_close_tab" for="close_tab" id="close_tab_label"></label>
+
+    <br/>
+
+    <input type="checkbox" id="reopen_tab"></input>
+    <label class='i18n' rel="option_reopen_tab" for="reopen_tab" id="reopen_tab_label"></label>
+
+    <br/>
+
+    <input type="checkbox" id="one_instance"></input>
+    <label class='i18n' rel="option_one_instance" for="one_instance" id="one_instance_label"></label>
+
+    <br/>  <hr/>
+    <button class='i18n' rel="button_save" onclick="save_options()">Save</button>
+</body>
+</html>

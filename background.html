@@ -1,0 +1,42 @@
+<html>
+<head></head>
+<body>
+
+<script type="text/javascript">
+function reopen(url){
+    chrome.tabs.create({url:url});
+}
+chrome.extension.onRequest.addListener(function(request, sender){
+    html = request.html;
+    title = request.title;
+    params = "height=" + request.height + ",width=" + request.width + ",toolbar=no,menubar=no";
+    pop_id = ""
+    if( localStorage['one_instance'] == 'true' ){
+        pop_id = "fp_popup";
+    }else{
+        pop_id = "fp_popup_" + Date.now();
+    }
+    pop = window.open("about:blank", pop_id, params);
+
+    close_tab = localStorage['close_tab'] ;
+    reopen_tab = localStorage['reopen_tab'] ;
+
+    pop.window.document.write("<html><head><title>"+ title + "</title>");
+    pop.window.document.write("<script type='text/javascript'>");
+    pop.window.document.write("function fp_unload(){ ");
+    if( reopen_tab == 'true' ){
+        pop.window.document.write("opener.window.location = \"javascript:reopen('" + request.url + "')\";");
+    }
+    pop.window.document.write("}<\/script></head>");
+    pop.window.document.write("<body style='margin:0;padding:0' onunload='fp_unload();'>");
+    pop.window.document.write(html);
+    pop.window.document.write("</body></html>");
+    pop.window.document.close();
+    //pop.window.document.title = title;
+    if( close_tab == 'true'){
+        chrome.tabs.remove(sender.tab.id);
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+    "extension_name":{
+        "message": "Flash Popup"
+    },
+    "extension_description":{
+        "message": "将网页上的Falsh放进单独的窗口播放"
+    },
+    "ui_options":{
+        "message": "首选项"
+    },
+    "ui_popup":{
+        "message": "+ 新窗口弹出播放"
+    },
+    "option_close_tab":{
+        "message": "当弹出播放窗口后关闭原页面"
+    },
+    "option_reopen_tab":{
+        "message": "播放窗口被关闭后重新打开原页面"
+    },
+    "option_one_instance":{
+        "message": "只允许一个弹出窗口"
+    },
+    "button_save":{
+        "message": "保存"
+    }
+}
+

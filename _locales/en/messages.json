@@ -1,0 +1,27 @@
+{
+    "extension_name":{
+        "message": "Flash Popup"
+    },
+    "extension_description":{
+        "message": "Description"
+    },
+    "ui_options":{
+        "message": "Popup Options"
+    },
+    "ui_popup":{
+        "message": "+ Play in a new window"
+    },
+    "option_close_tab":{
+        "message": "Close the web page when the flash popup"
+    },
+    "option_reopen_tab":{
+        "message": "Reopon web page when popup closed"
+    },
+    "option_one_instance":{
+        "message": "Only allow one popup  window"
+    },
+    "button_save":{
+        "message": "Save"
+    }
+}
+

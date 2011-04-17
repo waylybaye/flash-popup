@@ -1,0 +1,9 @@
+#fp_b_p{
+    display:block;line-height:20px;background-color:#fff;padding:0px 6px;color:gray;border-radius:2px;border:1px solid gray;
+    font-size:12px;
+}
+#fp_b_p:hover{
+    color: #900;
+    text-decoration: none;
+    /*border-color: #900;*/
+}
