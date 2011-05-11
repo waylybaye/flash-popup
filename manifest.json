@@ -3,12 +3,12 @@
     "version": "0.2",
     "description": "__MSG_extension_description__",
     "browser_action":{
-        "default_icon": "images.jpg",
+        "default_icon": "icon.png",
         "popup": "options.html"
     },
     "icons":{
-        "16": "images.jpg",
-        "48": "images.jpg"
+        "16": "icon.png",
+        "48": "icon.png"
     },
     "background_page": "background.html",
     "content_scripts": [
