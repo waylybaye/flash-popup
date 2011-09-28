@@ -9,7 +9,7 @@ function reopen(url){
 chrome.extension.onRequest.addListener(function(request, sender){
     html = request.html;
     title = request.title;
-    params = "height=" + request.height + ",width=" + request.width + ",toolbar=no,menubar=no";
+    params = "height=" + request.height + ",width=" + request.width + ",toolbar=no,menubar=no,location=no";
     pop_id = ""
     if( localStorage['one_instance'] == 'true' ){
         pop_id = "fp_popup";

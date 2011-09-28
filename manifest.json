@@ -1,6 +1,6 @@
 {
     "name": "__MSG_extension_name__",
-    "version": "0.2",
+    "version": "3.15",
     "description": "__MSG_extension_description__",
     "browser_action":{
         "default_icon": "icon.png",
